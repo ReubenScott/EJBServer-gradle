@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+  <!-- 一个持久化单元是一个Entitybean的集合，名称和注入em时指定的persistenceContext注释的unitName属性相同, JTA代表全局事物。 -->
+  <persistence-unit name="mysqlDS" transaction-type="JTA">
+    <!-- javax.persistence.PersistenceProvider接口的一个实现类(可选) -->
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <!--名称和数据源oracle-ds文件中jndi-name属性相同 -->
+    <jta-data-source>java:jboss/datasources/mysqlDS</jta-data-source>
+    <!-- 显式列出持久化类 -->
+    <class>com.kindustry.jpa.model.Cdsyu</class>
+    <class>com.kindustry.jpa.model.User</class>
+    <!-- 厂商专有属性 -->
+    <properties>
+      <!-- 根据元数据生成数据库的表结构。 -->
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+      <!-- 调整JDBC抓取数量的大小: Statement.setFetchSize() -->
+      <property name="hibernate.jdbc.fetch_size" value="18" />
+      <!-- 调整JDBC批量更新数量 -->
+      <property name="hibernate.jdbc.batch_size" value="10" />
+      <!-- 显示最终执行的SQL -->
+      <property name="hibernate.show_sql" value="true" />
+      <!-- 格式化显示的SQL -->
+      <property name="hibernate.format_sql" value="true" />
+      <property name="hibernate.use_sql_comments" value="true" />
+      <property name="hibernate.cache.use_second_level_cache" value="true" />
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+    </properties>
+  </persistence-unit>
+
+</persistence>

@@ -9,22 +9,23 @@ import javax.ejb.TransactionAttributeType;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.kindustry.ejb.service.ICdsyuService;
+import com.kindustry.ejb.service.ContainerService;
 import com.kindustry.jpa.model.Cdsyu;
 
 @Stateless(mappedName = "Cmt2")
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
-public class CdsyuServiceBean implements ICdsyuService {
+public class ContainerServiceBean implements ContainerService {
 
   /**
    * 
    */
   private static final long serialVersionUID = 1L;
 
-  // @PersistenceContext(unitName = "mysqlDS")
+  @PersistenceContext(unitName = "mysqlDS")
   private EntityManager em;
 
   @Override

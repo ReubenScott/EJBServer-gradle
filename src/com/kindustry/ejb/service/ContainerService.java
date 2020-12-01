@@ -9,7 +9,7 @@ import javax.ejb.Remote;
 import com.kindustry.jpa.model.Cdsyu;
 
 @Remote
-public interface ICdsyuService extends Serializable {
+public interface ContainerService extends Serializable {
 
   public Cdsyu findCdsyu(String cdsyu);
 

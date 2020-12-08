@@ -8,6 +8,7 @@
 
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java'
+//apply plugin: 'java-library'
 
 /**jdk版本*/
 sourceCompatibility = 1.8
@@ -76,9 +77,10 @@ uploadArchives {
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
+    maven{ url 'http://10.16.0.68:9999/repository/maven-public'}
     maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
-    maven { url 'https://maven.aliyun.com/repository/spring/'}
+    maven{ url 'https://maven.aliyun.com/repository/spring/'}
     mavenLocal()
     jcenter()
     mavenCentral()
@@ -94,7 +96,27 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     // implementation 'com.google.guava:guava:22.0'
     // implementation fileTree(dir:'lib',includes:['*jar'])
+    
+   // compileOnly  fileTree(dir:'D:/Application/Java/wildfly/bin/client',includes:['*jar'])
 
+    // Axis Client Start
+  //  implementation 'org.apache.axis:axis:1.4'
+  //  implementation 'wsdl4j:wsdl4j:1.6.3'
+  //  implementation 'javax.xml.soap:saaj-api:1.3'
+  //  implementation 'javax.xml:jaxrpc-api:1.1'
+  //  implementation 'commons-discovery:commons-discovery:0.5'
+    // Axis Client End
+    
+    
+    // Axis2 Client Start
+   // implementation 'org.apache.axis2:axis2:1.6.4'
+   // implementation 'ws-commons:axiom-api:1.1.1'
+    // 
+   // implementation 'org.apache.ws.commons.schema:XmlSchema:1.4.7'
+    // Axis2 Client End
+    
+    
+   // implementation 'commons-httpclient:commons-httpclient:3.1'
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
